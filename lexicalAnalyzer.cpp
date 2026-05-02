@@ -16,37 +16,11 @@ private:
     int pos = 0;
 
     unordered_set<string> keywords = {
-        "auto",
-        "break",
-        "case",
-        "char",
-        "const",
-        "continue",
-        "default",
-        "do" ,
-        "double",
         "else",
-        "enum",
-        "extern",
-        "float",
         "for",
-        "goto",
         "if",
         "int",
-        "long",
-        "register",
         "return",
-        "short",
-        "signed",
-        "sizeof",
-        "static",
-        "struct",
-        "switch",
-        "typedef",
-        "union",
-        "unsigned",
-        "void",
-        "volatile",
         "while"
     };
 
@@ -56,9 +30,7 @@ private:
         "*",
         "/",
         "%",
-        "--",
         "=",
-        "++",
         "<",
         ">",
         "<=",
@@ -81,14 +53,8 @@ private:
         ")",
         "{",
         "}",
-        "[",
-        "]",
-        ",",
         ";",
         ":",
-        ".",
-        "->",
-        "::"
     };
 
 public:
