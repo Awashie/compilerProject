@@ -272,7 +272,7 @@ string readFile(string fileLocation){ // loads all file contents into a string
 
     return result;
 }
-
+/*
 int main(int argc, char* argv[]) {
     if (argc < 2) {
         cout << "USAGE: ./lexer source_file\n";
@@ -293,3 +293,4 @@ int main(int argc, char* argv[]) {
 
     return 0;
 }
+    */
