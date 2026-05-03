@@ -184,8 +184,10 @@ private:
         }
         return 0;
     }
+    
+    // compares with keywords set and returns longest found match
 
-    Token checkKeywordAndIdentifier(){ // compares with keywords set and returns longest found match
+    Token checkKeywordAndIdentifier(){ 
         string lexeme;
         while (isalnum(peek()) || peek() == '_'){
             lexeme += consume();
