@@ -46,6 +46,7 @@ private:
         "~",
         "<<",
         ">>"
+        ":"
     };
 
     unordered_set<string> separator = {
@@ -53,8 +54,7 @@ private:
         ")",
         "{",
         "}",
-        ";",
-        ":",
+        ";"
     };
 
 public:
