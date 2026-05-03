@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "lexicalAnalzyer.cpp"
+#include "lexicalAnalyzer.cpp"
 #include "syntaxAnalyzer.cpp"
 #include "codegen.cpp"
 
