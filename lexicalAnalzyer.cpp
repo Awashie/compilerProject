@@ -61,6 +61,9 @@ private:
     // line and column are used for errors
     int line;
     int column;
+    int errorLine;
+    int errorColumn;
+
     
     char peek() { // value of current character
         if (pos < src.length()){
@@ -101,7 +104,9 @@ private:
     }
 
     Token nextToken(){ // calls all check functions and takes the longest match
-        
+        errorLine = line;
+        errorColumn = line;
+
         // this checks the end of file
         if (eofCheck()){
             return {0, "EOF", "EOF"};
@@ -333,7 +338,7 @@ public:
         while (t.tokenType != "EOF"){
             if (t.tokenType == "ERROR"){
                 result.clear();
-                cerr << "Tokenizer stopped due to error at:\nLine: " << line << ", Column: " << column << endl;
+                cerr << "Tokenizer stopped due to error at:\nLine: " << errorLine << ", Column: " << errorColumn << endl;
                 return result;
             }
             result.push_back(t);
