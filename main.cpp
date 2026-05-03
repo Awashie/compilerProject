@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "lexicalAnalyzer.cpp"
+#include "lexicalAnalzyer.cpp"
 #include "syntaxAnalyzer.cpp"
 #include "codegen.cpp"
 
@@ -13,10 +13,24 @@ int main(int argc, char *argv[]){
         exit(1);
     }
 
-    // open file
+    FILE * f = fopen(argv[1], "r");
+    if (!f){
+        cerr << "Failed to open: " << argv[1] << endl;
+    }
 
-    // tokenize with lexer
-    // returns an array of tokens (token struct)
+    string src;
+    int ch;
+    while ((ch = fgetc(f)) != EOF){
+        src += (char)ch;
+    }
+    fclose(f);
+
+    Lexer l(src);   
+    vector<Token> tokens = l.tokenize();  // returns an array of tokens (token struct)
+    for (int i = 0; i < tokens.size(); i++){
+        cout << tokens[i].tokenType << " " << tokens[i].lexeme << " " << tokens[i].value << endl;
+    }
+
 
     // syntax analysis on array of tokens
     // .makeTree 
