@@ -13,8 +13,6 @@ private:
     vector<Token> tokens;
     int pos;
 
-    Syntax (vector<Token> input) : tokens(input), pos(0) {}
-
     Token& currToken() { // returns current token
         return tokens[pos];
     }
@@ -79,6 +77,10 @@ private:
 
 
 public:
+
+    Syntax (vector<Token> input) : tokens(input), pos(0) {}
+
+
     syntaxNode* parseProgram() {
         syntaxNode* result = new syntaxNode;
         result->syntaxType = "Program";
@@ -368,7 +370,6 @@ syntaxNode* parseAddition() {
         if (check("Separator", "(")){
             consume();
             syntaxNode* result = parseExpr();
-            syntaxNode* parseExpr();
             expect("Separator", ")");
             return result;
         }

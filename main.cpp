@@ -1,10 +1,23 @@
 #include <iostream>
 
-#include "lexicalAnalyzer.cpp"
 #include "syntaxAnalyzer.cpp"
 #include "codegen.cpp"
 
 using namespace std;
+
+void printChildren(syntaxNode* child, int level){
+    for (int i = 0; i < child->children.size(); i++){
+        
+        for (int j = 0; j < level; j++){
+            cout << '\t';
+        }
+        cout << child->children[i]->syntaxType << " " << child->children[i]->value << endl;
+
+        printChildren(child->children[i], level+1);
+
+    }
+}
+
 
 int main(int argc, char *argv[]){
     // basic usage check
@@ -31,10 +44,13 @@ int main(int argc, char *argv[]){
         cout << tokens[i].tokenType << " " << tokens[i].lexeme << " " << tokens[i].value << endl;
     }
 
+    cout << "\n\n\n-----Syntax-----\n";
 
-    // syntax analysis on array of tokens
-    // .makeTree 
-    
+    Syntax s(tokens);
+    syntaxNode* result = s.parseProgram();    
+
+    printChildren(result, 0);
+
     // pass tree into code gen
 
     return 0;
