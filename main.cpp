@@ -1,7 +1,8 @@
 #include <iostream>
+#include <fstream>
 
 #include "syntaxAnalyzer.cpp"
-#include "codegen.cpp"
+#include "codeGenerator.cpp"
 
 using namespace std;
 
@@ -51,7 +52,12 @@ int main(int argc, char *argv[]){
 
     printChildren(result, 0);
 
-    // pass tree into code gen
+    CodeGenerator cg;
+    string assembly = cg.generate(result);
+    cout << assembly;
+
+    ofstream outputFile(argv[2]);
+    outputFile << assembly;
 
     return 0;
 }
