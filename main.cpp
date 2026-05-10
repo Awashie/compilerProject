@@ -54,7 +54,6 @@ int main(int argc, char *argv[]){
 
     CodeGenerator cg;
     string assembly = cg.generate(result);
-    cout << assembly;
 
     ofstream outputFile(argv[2]);
     outputFile << assembly;
